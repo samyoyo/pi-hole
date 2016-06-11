@@ -74,6 +74,11 @@ function uninstallFunc {
 	exit 1
 }
 
+function pauseResumePihole {
+	$SUDO /opt/pihole/pauseResume.sh
+	exit 1
+}
+
 function helpFunc {
 	echo "::: Control all PiHole specific functions!"
 	echo ":::"
@@ -85,6 +90,7 @@ function helpFunc {
 	echo ":::  -b, blacklist			Blacklist domains"
 	echo ":::  -d, debug 				Start a debugging session if having trouble"
 	echo ":::  -f, flush 				Flush the pihole.log file"
+  echo ":::  -p, pause 				Pause or resume ad blocking based on last state"
 	echo ":::  -u, updateDashboard			Update the web dashboard manually"
 	echo ":::  -g, updateGravity			Update the list of ad-serving domains"
 	echo ":::  -s, setupLCD				Automatically configures the Pi to use the 2.8 LCD screen to display stats on it"
@@ -104,6 +110,7 @@ case "$1" in
 "-b" | "blacklist"			) blacklistFunc "$@";;
 "-d" | "debug"				) debugFunc;;
 "-f" | "flush"				) flushFunc;;
+"-p" | "pause"        ) pauseResumePihole;;
 "-u" | "updateDashboard"	) updateDashboardFunc;;
 "-g" | "updateGravity"		) updateGravityFunc;;
 "-s" | "setupLCD"			) setupLCDFunction;;
