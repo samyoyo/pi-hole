@@ -74,10 +74,11 @@ function uninstallFunc {
 	exit 1
 }
 
-function versionFunc{
-    $SUDO /opt/pihole/version.sh
-    exit 1
+function versionFunc {
+	$SUDO /opt/pihole/version.sh
+	exit 1
 }
+
 function helpFunc {
 	echo "::: Control all PiHole specific functions!"
 	echo ":::"
